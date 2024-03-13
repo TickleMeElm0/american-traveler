@@ -41,7 +41,6 @@ Nurse_num <- as.integer(readline("Enter the candidate number: "))
 NurseFunction(Nurse_num)
 
 # Now you can use NurseSubset outside of NurseFunction
-
 # Add a new column to your subset data frame containing the ranks
 NurseSubset$rank <- rank(NurseSubset[, ncol(NurseSubset)], ties.method = "min")
 
@@ -70,7 +69,8 @@ result <- iterate_and_divide(NurseSubset, column_index, x)
 # Create a new data frame with all existing columns from NurseSubset and the new column
 NurseSubset_with_new_column <- cbind(NurseSubset, percent_rank = result)
 
-#Overallscore function
+#end of reusing the salary code
+# Overallscore function
 # Define the percentages and their weights
 percent_salary <- 0.51
 percent_distance <- 1
