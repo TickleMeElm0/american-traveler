@@ -70,5 +70,8 @@ result <- iterate_and_divide(NurseSubset, column_index, x)
 # Create a new data frame with all existing columns from NurseSubset and the new column
 NurseSubset_with_new_column <- cbind(NurseSubset, percent_salary = result)
 
-# This will take out all of the columns that I do not want printed out
-print(select(NurseSubset_with_new_column, -posid, -City, -ST, -Prof, -GroupSpec, -Shift, -'#Wks', -WklyHrs, -EstWklyGross))
+# Create a new dataset with only the last two columns
+simple_dataset <- select(NurseSubset_with_new_column, -posid, -City, -ST, -Prof, -GroupSpec, -Shift, -'#Wks', -WklyHrs, -EstWklyGross)
+
+# Print the new dataset
+print(simple_dataset)
