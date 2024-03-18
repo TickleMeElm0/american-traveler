@@ -45,9 +45,9 @@ NurseFunction(Nurse_num)
 # Add a new column to your subset data frame containing the ranks
 NurseSubset$rank <- rank(NurseSubset[, ncol(NurseSubset)], ties.method = "min")
 
-# Read the value of the first row and the second-to-last column
+# Read the value of the max value of the EstWklyGross column
 max_value <- max(NurseSubset$EstWklyGross)
-max_value <- as.numeric(as.character(max_value))
+#max_value <- as.numeric(as.character(max_value))
 
 # Function to iterate over each value in a column and divide a constant x by each value
 iterate_and_divide <- function(data, column_index, x) {
@@ -70,4 +70,5 @@ result <- iterate_and_divide(NurseSubset, column_index, x)
 # Create a new data frame with all existing columns from NurseSubset and the new column
 NurseSubset_with_new_column <- cbind(NurseSubset, percent_salary = result)
 
-print(NurseSubset_with_new_column)
+# This will take out all of the columns that I do not want printed out
+print(select(NurseSubset_with_new_column, -posid, -City, -ST, -Prof, -GroupSpec, -Shift, -'#Wks', -WklyHrs, -EstWklyGross))
