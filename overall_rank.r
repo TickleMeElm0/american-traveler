@@ -69,8 +69,10 @@ result <- iterate_and_divide(NurseSubset, column_index, x)
 # Create a new data frame with all existing columns from NurseSubset and the new column
 NurseSubset_with_new_column <- cbind(NurseSubset, percent_rank = result)
 
-#end of reusing the salary code
-# Overallscore function
+# Create a new dataset with only the last two columns
+simple_dataset <- select(NurseSubset_with_new_column, -posid, -City, -ST, -Prof, -GroupSpec, -Shift, -'#Wks', -WklyHrs, -EstWklyGross)
+
+# OVERALLSCORE function
 # Define the percentages and their weights
 percent_salary <- 0.51
 percent_distance <- 1
